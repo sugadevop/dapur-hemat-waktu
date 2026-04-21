@@ -1,0 +1,64 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+
+@theme {
+  /* Colors */
+  --color-primary: #E67E22;
+  --color-primary-dark: #D35400;
+  --color-primary-light: #F39C12;
+  --color-secondary: #27AE60;
+  --color-secondary-dark: #229954;
+  --color-surface: #FFFFFF;
+  --color-background: #FDFEFE;
+  --color-text-primary: #2C3E50;
+  --color-text-secondary: #7F8C8D;
+  --color-border: #ECF0F1;
+  --color-danger: #E74C3C;
+  --color-warning: #F39C12;
+  --color-success: #27AE60;
+
+  /* Font */
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  /* Border Radius */
+  --radius-card: 1rem;
+  --radius-button: 0.75rem;
+  --radius-input: 0.5rem;
+  --radius-full: 9999px;
+}
+
+/* Base styles */
+html {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+}
+
+/* Safe area for PWA standalone mode */
+body {
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+}
+
+/* Fluid typography */
+h1 { font-size: clamp(1.75rem, 1.5rem + 1.25vw, 2.5rem); font-weight: 700; }
+h2 { font-size: clamp(1.375rem, 1.2rem + 0.875vw, 1.875rem); font-weight: 600; }
+h3 { font-size: clamp(1.125rem, 1rem + 0.625vw, 1.5rem); font-weight: 600; }
+p, li { font-size: clamp(0.9375rem, 0.875rem + 0.3125vw, 1.0625rem); line-height: 1.6; }
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  html {
+    color: #FDFEFE;
+    background-color: #1A1A1A;
+  }
+}
