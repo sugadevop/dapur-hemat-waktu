@@ -54,6 +54,11 @@ const router = createRouter({
       name: 'kalkulator',
       component: () => import('@/views/KalkulatorView.vue'),
     },
+    {
+      path: '/challenge',
+      name: 'challenge',
+      component: () => import('@/views/ChallengeView.vue'),
+    },
   ],
 })
 

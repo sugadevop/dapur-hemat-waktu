@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { User, ChefHat, TrendingDown, RotateCcw } from 'lucide-vue-next'
+import { User, ChefHat, TrendingDown, RotateCcw, Moon, Sun, Flame } from 'lucide-vue-next'
+import { useDarkMode } from '@/composables/useDarkMode'
 import { db, type UserProfile } from '@/db'
 
 const profile = ref<UserProfile | null>(null)
@@ -17,6 +18,8 @@ const levelLabels: Record<number, { name: string; emoji: string }> = {
   2: { name: 'Partial Cook', emoji: '🍳' },
   3: { name: 'Full Batch Cooking', emoji: '👨‍🍳' },
 }
+
+const { isDark, toggle: toggleDark } = useDarkMode()
 
 async function resetProfile() {
   await db.profile.clear()
@@ -79,12 +82,41 @@ onMounted(async () => {
       </router-link>
 
       <router-link
+        to="/challenge"
+        class="flex items-center gap-3 rounded-button border border-border bg-surface px-4 py-3 font-semibold text-text-primary"
+      >
+        <Flame :size="18" />
+        14-Day Challenge
+      </router-link>
+
+      <router-link
         to="/kalkulator"
         class="flex items-center gap-3 rounded-button border border-border bg-surface px-4 py-3 font-semibold text-text-primary"
       >
         <TrendingDown :size="18" />
         Kalkulator Pengeluaran
       </router-link>
+    </div>
+
+    <!-- Dark Mode Toggle -->
+    <div class="rounded-card border border-border bg-surface p-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <Moon v-if="isDark" :size="18" class="text-text-secondary" />
+          <Sun v-else :size="18" class="text-text-secondary" />
+          <span class="text-sm font-medium text-text-primary">Mode Gelap</span>
+        </div>
+        <button
+          @click="toggleDark"
+          class="relative h-7 w-12 rounded-full transition-colors"
+          :class="isDark ? 'bg-primary' : 'bg-border'"
+        >
+          <span
+            class="absolute top-0.5 h-6 w-6 rounded-full bg-white shadow transition-transform"
+            :class="isDark ? 'translate-x-5' : 'translate-x-0.5'"
+          ></span>
+        </button>
+      </div>
     </div>
 
     <!-- App info -->

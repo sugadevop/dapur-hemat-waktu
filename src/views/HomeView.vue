@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { Flame, TrendingDown, Clock, ChefHat, ArrowRight, Refrigerator } from 'lucide-vue-next'
+import { Flame, TrendingDown, Clock, ChefHat, ArrowRight, Refrigerator, Trophy } from 'lucide-vue-next'
 import { db, type UserProfile } from '@/db'
 
 const profile = ref<UserProfile | null>(null)
@@ -138,6 +138,21 @@ onMounted(async () => {
         </router-link>
       </div>
     </div>
+
+    <!-- 14-Day Challenge CTA -->
+    <router-link
+      to="/challenge"
+      class="flex items-center gap-3 rounded-card border-2 border-primary/20 bg-primary/5 p-4"
+    >
+      <div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+        <Trophy :size="20" class="text-primary" />
+      </div>
+      <div class="flex-1">
+        <p class="font-semibold text-text-primary">14-Day Challenge</p>
+        <p class="text-sm text-text-secondary">Bangun sistem masak dalam 2 minggu</p>
+      </div>
+      <ArrowRight :size="18" class="text-primary" />
+    </router-link>
 
     <!-- Tip of the Day -->
     <div class="rounded-card bg-primary/5 border border-primary/20 p-4">

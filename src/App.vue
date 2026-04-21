@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { useRegisterSW } from 'virtual:pwa-register/vue'
+import { useDarkMode } from '@/composables/useDarkMode'
 
 const { needRefresh, updateServiceWorker } = useRegisterSW()
+useDarkMode() // Initialize dark mode on app start
 </script>
 
 <template>

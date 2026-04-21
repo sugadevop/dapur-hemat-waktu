@@ -74,8 +74,37 @@ p, li { font-size: clamp(0.9375rem, 0.875rem + 0.3125vw, 1.0625rem); line-height
 
 /* Dark mode */
 @media (prefers-color-scheme: dark) {
-  html {
-    color: #FDFEFE;
-    background-color: #1A1A1A;
+  :root {
+    --color-primary: #F39C12;
+    --color-primary-dark: #E67E22;
+    --color-primary-light: #F5B041;
+    --color-background: #121212;
+    --color-surface: #1E1E1E;
+    --color-text-primary: #F5F5F5;
+    --color-text-secondary: #9E9E9E;
+    --color-border: #2C2C2C;
+    --color-danger: #EF5350;
+    --color-warning: #FFB74D;
+    --color-success: #66BB6A;
   }
+
+  html {
+    color-scheme: dark;
+  }
+}
+
+/* Manual dark mode class override */
+.dark {
+  --color-primary: #F39C12;
+  --color-primary-dark: #E67E22;
+  --color-primary-light: #F5B041;
+  --color-background: #121212;
+  --color-surface: #1E1E1E;
+  --color-text-primary: #F5F5F5;
+  --color-text-secondary: #9E9E9E;
+  --color-border: #2C2C2C;
+  --color-danger: #EF5350;
+  --color-warning: #FFB74D;
+  --color-success: #66BB6A;
+  color-scheme: dark;
 }
