@@ -28,7 +28,7 @@ const activeTab = computed(() => {
 
 <template>
   <nav
-    class="fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-surface/95 backdrop-blur-md"
+    class="fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-surface backdrop-blur-md"
     style="padding-bottom: env(safe-area-inset-bottom)"
   >
     <div class="mx-auto flex max-w-lg items-center justify-around px-2 py-1">

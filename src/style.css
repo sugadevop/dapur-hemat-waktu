@@ -72,39 +72,40 @@ h2 { font-size: clamp(1.375rem, 1.2rem + 0.875vw, 1.875rem); font-weight: 600; }
 h3 { font-size: clamp(1.125rem, 1rem + 0.625vw, 1.5rem); font-weight: 600; }
 p, li { font-size: clamp(0.9375rem, 0.875rem + 0.3125vw, 1.0625rem); line-height: 1.6; }
 
-/* Dark mode */
+/* Dark mode — both system preference and manual .dark class */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --color-primary: #F39C12;
-    --color-primary-dark: #E67E22;
-    --color-primary-light: #F5B041;
-    --color-background: #121212;
-    --color-surface: #1E1E1E;
-    --color-text-primary: #F5F5F5;
-    --color-text-secondary: #9E9E9E;
-    --color-border: #2C2C2C;
-    --color-danger: #EF5350;
-    --color-warning: #FFB74D;
-    --color-success: #66BB6A;
-  }
-
-  html {
+  html:not(.light) {
+    --color-primary: #F39C12 !important;
+    --color-primary-dark: #E67E22 !important;
+    --color-primary-light: #F5B041 !important;
+    --color-background: #121212 !important;
+    --color-surface: #1E1E1E !important;
+    --color-text-primary: #F5F5F5 !important;
+    --color-text-secondary: #9E9E9E !important;
+    --color-border: #2C2C2C !important;
+    --color-danger: #EF5350 !important;
+    --color-warning: #FFB74D !important;
+    --color-success: #66BB6A !important;
     color-scheme: dark;
+    background-color: #121212;
+    color: #F5F5F5;
   }
 }
 
 /* Manual dark mode class override */
-.dark {
-  --color-primary: #F39C12;
-  --color-primary-dark: #E67E22;
-  --color-primary-light: #F5B041;
-  --color-background: #121212;
-  --color-surface: #1E1E1E;
-  --color-text-primary: #F5F5F5;
-  --color-text-secondary: #9E9E9E;
-  --color-border: #2C2C2C;
-  --color-danger: #EF5350;
-  --color-warning: #FFB74D;
-  --color-success: #66BB6A;
+html.dark {
+  --color-primary: #F39C12 !important;
+  --color-primary-dark: #E67E22 !important;
+  --color-primary-light: #F5B041 !important;
+  --color-background: #121212 !important;
+  --color-surface: #1E1E1E !important;
+  --color-text-primary: #F5F5F5 !important;
+  --color-text-secondary: #9E9E9E !important;
+  --color-border: #2C2C2C !important;
+  --color-danger: #EF5350 !important;
+  --color-warning: #FFB74D !important;
+  --color-success: #66BB6A !important;
   color-scheme: dark;
+  background-color: #121212;
+  color: #F5F5F5;
 }
