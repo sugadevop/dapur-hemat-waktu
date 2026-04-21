@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { Flame, TrendingDown, Clock, ChefHat, ArrowRight } from 'lucide-vue-next'
+import { Flame, TrendingDown, Clock, ChefHat, ArrowRight, Refrigerator } from 'lucide-vue-next'
 import { db, type UserProfile } from '@/db'
 
 const profile = ref<UserProfile | null>(null)
@@ -119,6 +119,20 @@ onMounted(async () => {
           <div class="flex-1">
             <p class="font-semibold text-text-primary">Jelajahi Resep</p>
             <p class="text-sm text-text-secondary">12 resep Indonesia siap meal prep</p>
+          </div>
+          <ArrowRight :size="18" class="text-text-secondary" />
+        </router-link>
+
+        <router-link
+          to="/panduan-simpan"
+          class="flex items-center gap-3 rounded-card border border-border bg-surface p-4 transition-shadow hover:shadow-md"
+        >
+          <div class="flex h-10 w-10 items-center justify-center rounded-full bg-blue-100">
+            <Refrigerator :size="20" class="text-blue-600" />
+          </div>
+          <div class="flex-1">
+            <p class="font-semibold text-text-primary">Panduan Simpan Bahan</p>
+            <p class="text-sm text-text-secondary">23 bahan Indonesia + tips penyimpanan</p>
           </div>
           <ArrowRight :size="18" class="text-text-secondary" />
         </router-link>

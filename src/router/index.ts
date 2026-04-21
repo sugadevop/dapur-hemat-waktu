@@ -37,6 +37,11 @@ const router = createRouter({
           name: 'profil',
           component: () => import('@/views/ProfilView.vue'),
         },
+        {
+          path: 'panduan-simpan',
+          name: 'panduan-simpan',
+          component: () => import('@/views/StorageGuideView.vue'),
+        },
       ],
     },
     {
