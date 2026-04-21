@@ -21,6 +21,7 @@ const showHistory = ref(false)
 const savedAudits = ref<AuditRecord[]>([])
 const justSaved = ref(false)
 const activeInput = ref(-1)
+let blurTimeout: ReturnType<typeof setTimeout> | null = null
 
 // Quick amounts for fast input
 const quickAmounts = [15000, 25000, 35000, 50000, 75000]
@@ -29,6 +30,18 @@ function addQuickAmount(dayIndex: number, amount: number) {
   const newSpending = [...spending.value]
   newSpending[dayIndex] = (newSpending[dayIndex] || 0) + amount
   spending.value = newSpending
+}
+
+function onInputFocus(i: number) {
+  if (blurTimeout) clearTimeout(blurTimeout)
+  activeInput.value = i
+}
+
+function onInputBlur() {
+  // Delay blur so quick amount button click registers first
+  blurTimeout = setTimeout(() => {
+    activeInput.value = -1
+  }, 200)
 }
 
 // Computeds
@@ -233,8 +246,8 @@ onMounted(loadHistory)
                 min="0"
                 step="5000"
                 placeholder="0"
-                @focus="activeInput = i"
-                @blur="activeInput = -1"
+                @focus="onInputFocus(i)"
+                @blur="onInputBlur()"
                 class="w-full rounded-input border border-border bg-surface py-2 pl-10 pr-3 text-sm font-medium text-text-primary outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
               />
             </div>
