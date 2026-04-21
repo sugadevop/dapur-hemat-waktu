@@ -108,12 +108,12 @@ onMounted(async () => {
         </div>
         <button
           @click="toggleDark"
-          class="relative h-7 w-12 rounded-full transition-colors"
+          class="relative inline-flex h-7 w-12 shrink-0 items-center rounded-full transition-colors"
           :class="isDark ? 'bg-primary' : 'bg-border'"
         >
           <span
-            class="absolute top-0.5 h-6 w-6 rounded-full bg-white shadow transition-transform"
-            :class="isDark ? 'translate-x-5' : 'translate-x-0.5'"
+            class="inline-block h-5 w-5 rounded-full bg-white shadow-md transition-transform"
+            :class="isDark ? 'translate-x-6' : 'translate-x-1'"
           ></span>
         </button>
       </div>
@@ -123,7 +123,7 @@ onMounted(async () => {
     <div class="rounded-card border border-border bg-surface p-4 space-y-2">
       <h3 class="text-sm font-semibold text-text-primary">Tentang App</h3>
       <p class="text-xs text-text-secondary">
-        Dapur Hemat Waktu — companion app untuk ebook "Dapur Hemat Waktu: Panduan Mulai Masak Efisien untuk Kehidupan Sehari-hari"
+        Sistem masak efisien untuk kehidupan sehari-hari
       </p>
       <p class="text-xs text-text-secondary">
         Versi 1.0.0 · Data tersimpan offline di perangkat kamu
