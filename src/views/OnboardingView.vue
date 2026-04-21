@@ -168,7 +168,7 @@ function goHome() {
 <template>
   <div class="min-h-dvh bg-background">
     <!-- Not complete: Quiz flow -->
-    <div v-if="!isComplete" class="flex min-h-dvh flex-col">
+    <div v-if="!isComplete" class="mx-auto max-w-lg flex min-h-dvh flex-col">
       <!-- Progress bar -->
       <div class="h-1 bg-border">
         <div
@@ -250,7 +250,7 @@ function goHome() {
     </div>
 
     <!-- Complete: Result -->
-    <div v-else class="flex min-h-dvh flex-col items-center justify-center px-6 text-center">
+    <div v-else class="mx-auto max-w-lg flex min-h-dvh flex-col items-center justify-center px-6 text-center">
       <div class="w-full max-w-sm space-y-6">
         <!-- Celebration -->
         <div>

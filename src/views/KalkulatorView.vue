@@ -182,8 +182,8 @@ onMounted(loadHistory)
 </script>
 
 <template>
-  <div class="min-h-dvh bg-background px-4 py-6">
-    <div class="mx-auto max-w-lg space-y-6">
+  <div class="min-h-dvh bg-background">
+    <div class="mx-auto max-w-lg px-4 py-6 space-y-6">
       <!-- Header -->
       <div class="flex items-center justify-between">
         <div>
