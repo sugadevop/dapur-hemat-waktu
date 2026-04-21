@@ -49,6 +49,15 @@ body {
   padding-right: env(safe-area-inset-right);
 }
 
+/* Input text color fix */
+input, select, textarea {
+  color: var(--color-text-primary);
+}
+
+input::placeholder {
+  color: var(--color-text-secondary);
+}
+
 /* Fluid typography */
 h1 { font-size: clamp(1.75rem, 1.5rem + 1.25vw, 2.5rem); font-weight: 700; }
 h2 { font-size: clamp(1.375rem, 1.2rem + 0.875vw, 1.875rem); font-weight: 600; }

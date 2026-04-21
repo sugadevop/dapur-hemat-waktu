@@ -232,7 +232,7 @@ onMounted(loadHistory)
                 placeholder="0"
                 @focus="activeInput = i"
                 @blur="activeInput = -1"
-                class="w-full rounded-input border border-border bg-background py-2 pl-10 pr-3 text-sm font-medium outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+                class="w-full rounded-input border border-border bg-surface py-2 pl-10 pr-3 text-sm font-medium text-text-primary outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
               />
             </div>
           </div>

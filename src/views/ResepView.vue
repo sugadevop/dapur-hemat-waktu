@@ -27,7 +27,7 @@ function levelColor(level: string) {
     <input
       type="search"
       placeholder="Cari resep..."
-      class="w-full rounded-input border border-border bg-surface px-4 py-2.5 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
+      class="w-full rounded-input border border-border bg-surface px-4 py-2.5 text-sm text-text-primary outline-none focus:border-primary focus:ring-2 focus:ring-primary/20"
     />
 
     <!-- Recipe Cards -->
