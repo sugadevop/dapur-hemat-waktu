@@ -49,12 +49,20 @@ body {
   padding-right: env(safe-area-inset-right);
 }
 
-/* Input text color fix */
+/* Global text color fix — never rely on inheritance */
+* {
+  color: inherit;
+}
+
+body {
+  color: var(--color-text-primary);
+}
+
 input, select, textarea {
   color: var(--color-text-primary);
 }
 
-input::placeholder {
+input::placeholder, textarea::placeholder {
   color: var(--color-text-secondary);
 }
 

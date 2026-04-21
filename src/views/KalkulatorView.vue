@@ -26,7 +26,9 @@ const activeInput = ref(-1)
 const quickAmounts = [15000, 25000, 35000, 50000, 75000]
 
 function addQuickAmount(dayIndex: number, amount: number) {
-  spending.value[dayIndex] += amount
+  const newSpending = [...spending.value]
+  newSpending[dayIndex] = (newSpending[dayIndex] || 0) + amount
+  spending.value = newSpending
 }
 
 // Computeds
@@ -79,12 +81,13 @@ const chartOptions = {
       ticks: {
         callback: (val: any) => 'Rp ' + (val / 1000) + 'k',
         font: { size: 10 },
+        color: '#7F8C8D',
       },
       grid: { color: '#ECF0F1' },
     },
     x: {
       grid: { display: false },
-      ticks: { font: { size: 11 } },
+      ticks: { font: { size: 11 }, color: '#2C3E50' },
     },
   },
 }
@@ -174,7 +177,7 @@ onMounted(loadHistory)
           <router-link to="/" class="flex items-center gap-1 text-sm text-primary mb-2">
             <ArrowLeft :size="16" /> Kembali
           </router-link>
-          <h1 class="text-xl font-bold">Audit Pengeluaran Makan</h1>
+          <h1 class="text-xl font-bold text-text-primary">Audit Pengeluaran Makan</h1>
           <p class="text-sm text-text-secondary mt-1">
             Catat semua pengeluaran makan luar minggu ini
           </p>
@@ -199,7 +202,7 @@ onMounted(loadHistory)
             class="flex items-center justify-between rounded-card border border-border bg-surface p-3"
           >
             <button @click="loadAudit(audit)" class="flex-1 text-left">
-              <p class="text-sm font-medium">{{ formatDate(audit.createdAt) }}</p>
+              <p class="text-sm font-medium text-text-primary">{{ formatDate(audit.createdAt) }}</p>
               <p class="text-xs text-text-secondary">
                 {{ formatRp(audit.totalWeekly) }} · Hemat {{ formatRp(audit.hemat) }}
               </p>
@@ -256,12 +259,12 @@ onMounted(loadHistory)
           <!-- Chart -->
           <div class="rounded-card border border-border bg-surface p-4">
             <div class="mb-2 flex items-center justify-between">
-              <h3 class="text-sm font-semibold">Perbandingan Pengeluaran</h3>
+              <h3 class="text-sm font-semibold text-text-primary">Perbandingan Pengeluaran</h3>
               <div class="flex items-center gap-3 text-[10px]">
-                <span class="flex items-center gap-1">
+                <span class="flex items-center gap-1 text-text-primary">
                   <span class="h-2 w-2 rounded-full bg-danger"></span> Makan Luar
                 </span>
-                <span class="flex items-center gap-1">
+                <span class="flex items-center gap-1 text-text-primary">
                   <span class="h-2 w-2 rounded-full bg-secondary"></span> Masak Sendiri
                 </span>
               </div>
@@ -297,7 +300,7 @@ onMounted(loadHistory)
 
           <!-- Projection -->
           <div class="rounded-card border border-border bg-surface p-4">
-            <h3 class="text-sm font-semibold mb-3">Proyeksi Penghematan</h3>
+            <h3 class="text-sm font-semibold mb-3 text-text-primary">Proyeksi Penghematan</h3>
             <div class="space-y-2">
               <div class="flex justify-between text-sm">
                 <span class="text-text-secondary">1 bulan</span>
